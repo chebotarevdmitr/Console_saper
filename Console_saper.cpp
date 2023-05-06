@@ -40,7 +40,8 @@ int main()
     }
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
-           cout<< field[i][j]<<' ';
+            if (field[i][j] == -1)cout << "*" << " ";
+            else cout<< field[i][j]<<" ";
         }
         cout << endl;
     }
