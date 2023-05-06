@@ -17,7 +17,13 @@ int field_p[100][100];
 const int N = 9, M = 9, K = 10;
 void print_field() {
     system("cls");
+    cout << " ";
+    for (int i = 0; i < M; ++i) {
+        cout << " " << i;
+    }
+    cout << endl;
     for (int i = 0; i < N; i++) {
+        cout << i << " ";
         for (int j = 0; j < M; j++) {
             if (field_p[i][j] == -2)cout << "_ " ;
             else if (field_p[i][j] == -1)cout << "f " ;
