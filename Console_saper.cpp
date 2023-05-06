@@ -14,20 +14,22 @@ int field_p[100][100];
 /* funkciya kotoraya chistit i vivodit pole na ekran 
    -> print_field <- (){system("cls");for()...}
 */
-const int N = 9, M = 9, K = 10;
+const int N = 11, M = 11, K = 10;
 void print_field() {
     system("cls");
-    cout << " ";
+    cout << "  ";
     for (int i = 0; i < M; ++i) {
-        cout << " " << i;
+        cout << " " << i + 1;
+        if (i + 1 < 10)cout << ' ';
     }
     cout << endl;
     for (int i = 0; i < N; i++) {
-        cout << i << " ";
+        cout << i + 1 << " ";
+        if (i + 1 < 10)cout << ' ';
         for (int j = 0; j < M; j++) {
-            if (field_p[i][j] == -2)cout << "_ " ;
-            else if (field_p[i][j] == -1)cout << "f " ;
-            else cout << field_p[i][j] << " ";
+            if (field_p[i][j] == -2)cout << "_  " ;
+            else if (field_p[i][j] == -1)cout << "f  " ;
+            else cout << field_p[i][j] << "  ";
         }
         cout << endl;
     }
