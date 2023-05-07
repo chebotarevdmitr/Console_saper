@@ -74,6 +74,20 @@ bool is_win() {
     return(N * M - K == opened);
 }
 
+//funkciya ->end_game <- zavershaet igru
+void end_game(bool is_win = false) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            if (field_p[i][j] == -1)field_p[i][j] = -2;
+            if (field[i][j] == -1) field_p[i][j] = -3;
+        }
+    }
+    print_field();
+    cout << " Vi" << (is_win ? "Viigrali !!!" : "proigrali ") << "\nchtob nacat novuyu igru vvedite lyubuyu stroku:\n";
+    string s;
+    cin >> s;
+ }
+
 int main()
 {
     while (true) {
@@ -130,29 +144,11 @@ int main()
                 // otkroem kletki
                 if (x < 0 || x >= N || y < 0 || y >= M || field_p[x][y] >= 0) continue;
                 if(! open_cell(x, y)) {
-                    for (int i = 0; i < N; i++) {
-                        for (int j = 0; j < M; j++) {
-                            if (field_p[i][j] == -1)field_p[i][j] = -2;
-                            if (field[i][j] == -1) field_p[x][y] = -3;
-                        }
-                    }
-                    print_field();
-                    cout << " Vi proigrali,\nchtob nacat novuyu igru vvedite lyubuyu stroku";
-                    string s;
-                    cin >> s;
+                    end_game();
                     break;
                 }
                 if (is_win()) {
-                    for (int i = 0; i < N; i++) {
-                        for (int j = 0; j < M; j++) {
-                            if (field_p[i][j] == -1)field_p[i][j] = -2;
-                            if (field[i][j] == -1) field_p[x][y] = -3;
-                        }
-                    }
-                    print_field();
-                    cout << " Vi viigrali!!!!!,\nchtob nacat novuyu igru vvedite lyubuyu stroku";
-                    string s;
-                    cin >> s;
+                    end_game(true);
                     break;
                 }
             }
@@ -175,5 +171,5 @@ int main()
             }
         }
     }
-    system("pause>0");
+    
 }
