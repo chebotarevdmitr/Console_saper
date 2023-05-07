@@ -35,6 +35,20 @@ void print_field() {
     }
 }
 
+//funkciya ->dfs<- "obhod v glubinu"(DIIP FIRST
+
+
+//funkciya otkritiya kletki ->open_cell<-
+//true ne vzorvalis
+bool open_cell(int x, int y) {
+    if (field[x][y] == -1) return false;
+    if (field[x][y] == 0) {
+        field_p[x][y] = field[x][y];
+        return true;
+    }
+    dfs(x,y)
+}
+
 int main()
 {
     while (true) {
@@ -88,13 +102,13 @@ int main()
                 int x, y;
                 cin >> x >> y;
                 // otkroem kletki
-                //...
+                if (x < 1 || x > N || y < 1 || y > M || field_p[x][y] >= 0) continue;
             }
             else if (comand == "\\f") {
                 // Vvod koordinat
                 int x, y;
                 cin >> x >> y;
-                if (x < 1 || x > 9 || y < 1 || y > 9 || field_p[x][y] >= 0) continue;
+                if (x < 1 || x > N || y < 1 || y > M || field_p[x][y] >= 0) continue;
                 //put flag
                 if (field_p[x][y] == -1)  field_p[x][y] == -2;
                 else field_p[x][y] = -1;
